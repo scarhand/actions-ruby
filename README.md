@@ -19,13 +19,13 @@ action "Build" {
 
 # Filter for a new tag
 action "Tag" {
-  needs = "Test"
+  needs = "Build"
   uses = "actions/bin/filter@master"
   args = "tag v*"
 }
 
 action "Publish" {
-  needs = "Build"
+  needs = "Tag"
   uses = "scarhand/actions-ruby@master"
   args = "push *.gem"
   secrets = ["RUBYGEMS_AUTH_TOKEN"]
@@ -49,9 +49,9 @@ action "Publish" {
   uses = "scarhand/actions-ruby@master"
   args = "push *.gem"
   env = {
-    GEM_REPOSITORY_URL = "https://someOtherrepository.someDomain.net"
+    GEM_REPOSITORY_URL = "https://someOtherRepository.someDomain.net"
   }
-  secrets = ["GEM_AUTH_TOKEN"]
+  secrets = ["RUBYGEMS_AUTH_TOKEN"]
 }
 ```
 
