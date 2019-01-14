@@ -1,4 +1,4 @@
-# GitHub Actions for NPM
+# GitHub Actions for Ruby Gems
 
 This Action for [rubygems](https://rubygems.org/) enables arbitrary actions with the `gem` command-line client, including publishing to a registry.
 
