@@ -49,7 +49,7 @@ action "Publish" {
   uses = "scarhand/actions-ruby@master"
   args = "push *.gem"
   env = {
-    GEM_REPOSITORY_URL = "https://someOtherRepository.someDomain.net"
+    RUBYGEMS_HOST = "https://someOtherRepository.someDomain.net"
   }
   secrets = ["RUBYGEMS_AUTH_TOKEN"]
 }
